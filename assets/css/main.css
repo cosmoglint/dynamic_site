@@ -2643,3 +2643,9 @@ input, select, textarea {
 			}
 
 	}
+
+#bganim {
+    position: -webkit-sticky;
+    position: fixed;
+    top: 0;
+}

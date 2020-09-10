@@ -6,7 +6,7 @@ function cell(x,y){
 	this.xcen = this.xloc + x_dis/2;
 	this.ycen = this.yloc + y_dis/2;
 	this.alive = false;
-	this.col = 'black';
+	this.col = 'white';
 	this.out = lte;
 	
 	this.show = function(){
@@ -17,7 +17,7 @@ function cell(x,y){
 		}
 		else {
 			stroke(this.out);
-			fill('white');
+			fill(lte);
 			rect(this.xloc,this.yloc,x_dis,y_dis);
 			
 		}
@@ -25,7 +25,7 @@ function cell(x,y){
 	
 	this.clicked = function(mx,my){
 		var d = dist(mx,my,this.xcen,this.ycen);
-		if (d <= x_dis*2){
+		if (d <= x_dis*4){
 			this.alive = true;
 			this.show();
 		}

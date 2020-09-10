@@ -131,6 +131,10 @@ let count = 0;
 let modee = 'sim';
 let canvas;
 
+function mousePressed(){
+	clear_custom();
+}
+
 function pressed(mx,my){
 	stroke(lte);
 	circle(mx,my,20);
@@ -141,9 +145,13 @@ function pressed(mx,my){
 		}
 	}
 
+//function windowResized(){
+//	resizeCanvas(windowWidth,windowHeight); 
+//}
 
 function setup() {
-	lte = color(0, 220, 250);
+	lte = color(0,225,255);
+	nte = color(148, 255, 239);
 	te = color(79, 170, 170);
 	orange = color(255,209,127);
 	go = color(255,215,0);
@@ -170,6 +178,6 @@ function draw() {
 	updater(custom_grid);
 	
 	stroke(lte);
-	fill('white');
+	fill('black');
 	circle(mouseX,mouseY,x_dis*2);
 }
