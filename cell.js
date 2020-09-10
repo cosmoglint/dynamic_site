@@ -23,10 +23,10 @@ function cell(x,y){
 		}
 	}
 	
-	this.clicked = function(){
-		var d = dist(mouseX,mouseY,this.xcen,this.ycen);
-		if (d <= x_dis/2){
-			this.flip();
+	this.clicked = function(mx,my){
+		var d = dist(mx,my,this.xcen,this.ycen);
+		if (d <= x_dis*2){
+			this.alive = true;
 			this.show();
 		}
 	}

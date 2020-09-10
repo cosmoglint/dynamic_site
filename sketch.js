@@ -73,11 +73,11 @@ function resetsketch(){
 }
 
 function updater(){
-	grid = conway(grid);
+	custom_grid = conway(custom_grid);
 	
 	for (let i = 0; i < (grid.length); i++){
 		for (let j = 0; j < grid[0].length; j++){
-			grid[i][j].show();
+			custom_grid[i][j].show();
 		}
 	}
 }
@@ -131,22 +131,15 @@ let count = 0;
 let modee = 'sim';
 let canvas;
 
-function mousePressed(){
-	if (modee == "sim"){
+function pressed(mx,my){
+	stroke(lte);
+	circle(mx,my,20);
 	for (let i = 0; i < (grid.length); i++){
 		for (let j = 0; j < grid[0].length; j++){
-			grid[i][j].clicked();
+			custom_grid[i][j].clicked(mx,my);
 			}
 		}
 	}
-	else {
-		for (let i = 0; i < (grid.length); i++){
-			for (let j = 0; j < grid[0].length; j++){
-				custom_grid[i][j].clicked();
-			}
-		}
-	}
-}
 
 
 function setup() {
@@ -170,28 +163,13 @@ function setup() {
 	
 	frameRate(fr);
 	resetsketch();
-	var restart_random_button = createButton("restart random sim");
-	restart_random_button.mousePressed(resetsketch);
-//	restart_random_button.style('x')
-	
-	var restart_custom_button = createButton("restart custom sim (continue with your board)");
-	restart_custom_button.mousePressed(start_custom);
-	
-	var play_custom_button = createButton("play custom");
-	play_custom_button.mousePressed(play_custom);
-	
-	var clear_custom_button = createButton("clear custom board");
-	clear_custom_button.mousePressed(clear_custom);
 }
 
 function draw() {
-	if (modee == "sim"){
-		updater(grid);
-	}
-	else if (modee == "setup"){
-		displayer(custom_grid);
-	}
-	else{
-		updater(grid);
-	}
+	pressed(mouseX,mouseY);
+	updater(custom_grid);
+	
+	stroke(lte);
+	fill('white');
+	circle(mouseX,mouseY,x_dis*2);
 }
